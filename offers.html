@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العروض - NursingIQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Include Shared Navbar -->
+    <div id="navbar-container"><!-- Shared Navbar Component -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <i class="bi bi-heart-pulse-fill text-primary me-2"></i>
+            <span class="fw-bold">NursingIQ</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" data-lang-key="home">الرئيسية</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="learning">
+                        التعلم
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="courses.html" data-lang-key="studyContent">المحتوى الدراسي</a></li>
+                        <li><a class="dropdown-item" href="training.html" data-lang-key="practicalContent">المحتوى العملي</a></li>
+                        <li><a class="dropdown-item" href="articles.html" data-lang-key="articles">المقالات</a></li>
+                        <li><a class="dropdown-item" href="diplomas.html">الدبلومات المهنية</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="community">
+                        المجتمع
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="forum.html" data-lang-key="forum">المنتدى</a></li>
+                        <li><a class="dropdown-item" href="announcements.html" data-lang-key="announcements">الإعلانات</a></li>
+                        <li><a class="dropdown-item" href="offers.html" data-lang-key="offers">العروض</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="store.html" data-lang-key="store">المتجر</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="reference">
+                        المرجع
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="dictionary.html" data-lang-key="dictionary">القاموس الطبي</a></li>
+                        <li><a class="dropdown-item" href="medicines.html" data-lang-key="medicines">الأدوية</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="support">
+                        الدعم
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="support.html" data-lang-key="technicalSupport">الدعم الفني</a></li>
+                        <li><a class="dropdown-item" href="about.html" data-lang-key="about">من نحن</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="d-flex align-items-center">
+                <!-- Language Switcher -->
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-primary dropdown-toggle language-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch language">
+                        <i class="bi bi-globe me-1"></i>
+                        <span id="currentLanguage">العربية</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="LanguageSystem.changeLanguage('ar')">
+                            <i class="bi bi-flag me-2"></i>العربية
+                        </a></li>
+                        <li><a class="dropdown-item" href="#" onclick="LanguageSystem.changeLanguage('en')">
+                            <i class="bi bi-flag me-2"></i>English
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login" data-lang-key="login">تسجيل الدخول</a>
+                    <a href="register.html" class="btn btn-register" data-lang-key="register">حساب جديد</a>
+                </div>
+
+                <!-- User Menu -->
+                <div id="user-menu" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-2"></i>
+                            <span id="user-name">المستخدم</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dashboard-student.html">
+                                <i class="bi bi-speedometer2 me-2"></i><span data-lang-key="dashboard">لوحة التحكم</span>
+                            </a></li>
+                            <li><a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person me-2"></i><span data-lang-key="profile">الملف الشخصي</span>
+                            </a></li>
+                            <li><a class="dropdown-item" href="my-courses.html">
+                                <i class="bi bi-book me-2"></i><span data-lang-key="myCourses">كورساتي</span>
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">
+                                <i class="bi bi-box-arrow-right me-2"></i><span data-lang-key="logout">تسجيل الخروج</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Chatbot Button -->
+<div class="chatbot-btn" onclick="openChatbot()" aria-label="Open chatbot">
+    <i class="bi bi-chat-dots"></i>
+</div>
+
+<!-- Toast Container -->
+<div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+</div>
+
+    <!-- Page Banner -->
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">العروض الخاصة</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                            <li class="breadcrumb-item active">العروض</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="img/i9.jpg" alt="Special Offers" class="img-fluid rounded" style="max-height: 200px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Offer - 5+1 -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="card-body text-white text-center p-5">
+                            <div class="mb-4">
+                                <i class="bi bi-gift display-1"></i>
+                            </div>
+                            <h2 class="display-5 fw-bold mb-3">عرض خاص: اشتر 5 واحصل على 1 مجاناً!</h2>
+                            <p class="lead mb-4">احصل على 6 كورسات مقابل سعر 5 فقط! عرض محدود لفترة محدودة</p>
+                            <div class="row text-center mb-4">
+                                <div class="col-md-4">
+                                    <div class="bg-white bg-opacity-20 rounded p-3">
+                                        <h4 class="fw-bold">5 كورسات</h4>
+                                        <p class="mb-0" style="color: black;">اختر من مجموعة واسعة</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="bg-white bg-opacity-20 rounded p-3">
+                                        <h4 class="fw-bold">+</h4>
+                                        <p class="mb-0" style="color: black;">كورس إضافي</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="bg-white bg-opacity-20 rounded p-3">
+                                        <h4 class="fw-bold">مجاناً</h4>
+                                        <p class="mb-0" style="color: black;">بدون أي تكلفة إضافية</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                <button class="btn btn-light btn-lg" onclick="showOfferDetails()">
+                                    <i class="bi bi-info-circle me-2"></i>تفاصيل العرض
+                                </button>
+                                <button class="btn btn-outline-light btn-lg" onclick="claimOffer()">
+                                    <i class="bi bi-cart-plus me-2"></i>احصل على العرض
+                                </button>
+                            </div>
+                            <div class="mt-4">
+                                <small class="text-white-50">
+                                    <i class="bi bi-clock me-1"></i>ينتهي العرض في: <span id="countdown">7 أيام</span>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Offers Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-6 fw-bold text-primary mb-3">جميع العروض المتاحة</h2>
+                    <p class="lead text-muted">اكتشف مجموعة متنوعة من العروض الخاصة والخصومات</p>
+                </div>
+            </div>
+
+            <div class="row g-4" id="offersList">
+                <!-- Offers will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Details Modal -->
+    <div class="modal fade" id="offerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="offerModalTitle">تفاصيل العرض</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="offerModalBody">
+                    <!-- Offer details will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary" onclick="claimCurrentOffer()">احصل على العرض</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Container -->
+    <div id="footer-container">
+        <!-- Footer with Hover Effect -->
+<style>
+    footer a {
+        transition: color 0.3s ease, background-color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #0d6efd !important; /* أزرق */
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 5px;
+        text-decoration: underline;
+    }
+</style>
+
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="mb-3">NursingIQ</h5>
+                <p class="text-white" data-lang-key="footerDescription">منصة شاملة لمساعدة طلاب التمريض في تطوير مهاراتهم ومعرفتهم</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="mb-3" data-lang-key="quickLinks">روابط سريعة</h6>
+                <ul class="list-unstyled">
+                    <li><a href="courses.html" class="text-white text-decoration-none" data-lang-key="courses">المواد</a></li>
+                    <li><a href="training.html" class="text-white text-decoration-none" data-lang-key="training">التدريب</a></li>
+                    <li><a href="skills.html" class="text-white text-decoration-none" data-lang-key="skills">المهارات</a></li>
+                    <li><a href="support.html" class="text-white text-decoration-none" data-lang-key="support">الدعم</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="mb-3" data-lang-key="resources">الموارد</h6>
+                <ul class="list-unstyled">
+                    <li><a href="quizzes.html" class="text-white text-decoration-none" data-lang-key="quizzes">الاختبارات</a></li>
+                    <li><a href="videos.html" class="text-white text-decoration-none" data-lang-key="videos">الفيديوهات</a></li>
+                    <li><a href="announcements.html" class="text-white text-decoration-none" data-lang-key="announcements">الإعلانات</a></li>
+                    <li><a href="offers.html" class="text-white text-decoration-none" data-lang-key="offers">العروض</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h6 class="mb-3" data-lang-key="newsletter">النشرة الإخبارية</h6>
+                <p class="text-white" data-lang-key="newsletterDesc">اشترك للحصول على آخر التحديثات</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="البريد الإلكتروني" id="newsletter-email">
+                    <button class="btn btn-primary" type="button" onclick="subscribeNewsletter()" data-lang-key="subscribe">اشتراك</button>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="mb-0 text-white">&copy; 2024 NursingIQ. جميع الحقوق محفوظة</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="about.html" class="text-white text-decoration-none me-3" data-lang-key="about">حول الموقع</a>
+                <a href="support.html" class="text-white text-decoration-none me-3" data-lang-key="contact">اتصل بنا</a>
+                <a href="#" class="text-white text-decoration-none" data-lang-key="privacy">سياسة الخصوصية</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Sample offers data
+        const offersData = [
+            {
+                id: 1,
+                title: "عرض 5+1",
+                subtitle: "اشتر 5 واحصل على 1 مجاناً",
+                description: "احصل على 6 كورسات مقابل سعر 5 فقط! عرض محدود لفترة محدودة",
+                originalPrice: "1200 جنيه",
+                discountedPrice: "1000 جنيه",
+                savings: "200 جنيه",
+                discount: "17%",
+                type: "special",
+                image: "img/i1.jpg",
+                validUntil: "2024-02-15",
+                features: [
+                    "اختر من مجموعة واسعة من الكورسات",
+                    "كورس إضافي مجاناً",
+                    "صلاحية لمدة سنة كاملة",
+                    "شهادة معتمدة لكل كورس"
+                ],
+                isActive: true
+            },
+            {
+                id: 2,
+                title: "خصم الطلاب الجدد",
+                subtitle: "خصم 50% للطلاب الجدد",
+                description: "عرض خاص للطلاب الجدد: احصل على خصم 50% على جميع الكورسات",
+                originalPrice: "800 جنيه",
+                discountedPrice: "400 جنيه",
+                savings: "400 جنيه",
+                discount: "50%",
+                type: "new-student",
+                image: "img/i2.jpg",
+                validUntil: "2024-01-31",
+                features: [
+                    "خصم 50% على جميع الكورسات",
+                    "عرض صالح للطلاب الجدد فقط",
+                    "يمكن الجمع مع عروض أخرى",
+                    "صلاحية لمدة 6 أشهر"
+                ],
+                isActive: true
+            },
+            {
+                id: 3,
+                title: "باقة المهارات المتقدمة",
+                subtitle: "3 كورسات متقدمة بسعر واحد",
+                description: "احصل على 3 كورسات متقدمة في التمريض بسعر كورس واحد فقط",
+                originalPrice: "900 جنيه",
+                discountedPrice: "300 جنيه",
+                savings: "600 جنيه",
+                discount: "67%",
+                type: "advanced",
+                image: "img/i3.jpg",
+                validUntil: "2024-02-28",
+                features: [
+                    "3 كورسات متقدمة",
+                    "مهارات عملية متخصصة",
+                    "شهادات معتمدة",
+                    "دعم فني مجاني"
+                ],
+                isActive: true
+            },
+            {
+                id: 4,
+                title: "عرض العائلة",
+                subtitle: "خصم للعائلات",
+                description: "خصم خاص للعائلات: احصل على خصم إضافي عند التسجيل مع أفراد العائلة",
+                originalPrice: "600 جنيه",
+                discountedPrice: "450 جنيه",
+                savings: "150 جنيه",
+                discount: "25%",
+                type: "family",
+                image: "img/i4.jpg",
+                validUntil: "2024-03-15",
+                features: [
+                    "خصم 25% للعائلات",
+                    "يجب التسجيل مع 3 أفراد على الأقل",
+                    "عرض صالح لمرة واحدة",
+                    "صلاحية مشتركة"
+                ],
+                isActive: true
+            },
+            {
+                id: 5,
+                title: "عرض نهاية الأسبوع",
+                subtitle: "خصم 30% في عطلة نهاية الأسبوع",
+                description: "خصم خاص في عطلات نهاية الأسبوع على جميع الكورسات",
+                originalPrice: "500 جنيه",
+                discountedPrice: "350 جنيه",
+                savings: "150 جنيه",
+                discount: "30%",
+                type: "weekend",
+                image: "img/i5.webp",
+                validUntil: "2024-12-31",
+                features: [
+                    "خصم 30% في عطلات نهاية الأسبوع",
+                    "عرض متكرر كل أسبوع",
+                    "يشمل جميع الكورسات",
+                    "صلاحية فورية"
+                ],
+                isActive: true
+            },
+            {
+                id: 6,
+                title: "باقة الطوارئ",
+                subtitle: "كورسات الطوارئ بخصم كبير",
+                description: "احصل على جميع كورسات الطوارئ والعناية المركزة بخصم كبير",
+                originalPrice: "1500 جنيه",
+                discountedPrice: "900 جنيه",
+                savings: "600 جنيه",
+                discount: "40%",
+                type: "emergency",
+                image: "img/i6.jpg",
+                validUntil: "2024-02-10",
+                features: [
+                    "جميع كورسات الطوارئ",
+                    "كورسات العناية المركزة",
+                    "تدريب عملي شامل",
+                    "شهادات معتمدة"
+                ],
+                isActive: true
+            }
+        ];
+
+        function displayOffers() {
+            const offersList = document.getElementById('offersList');
+            
+            offersList.innerHTML = offersData.map(offer => `
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card h-100 ${offer.type === 'special' ? 'border-primary border-3' : ''}">
+                        ${offer.type === 'special' ? 
+                            '<div class="position-absolute top-0 start-0 bg-primary text-white px-3 py-1 rounded-bottom-end">عرض مميز</div>' : ''
+                        }
+                        <img src="${offer.image}" class="card-img-top" alt="${offer.title}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-success">خصم ${offer.discount}</span>
+                                <small class="text-muted">
+                                    <i class="bi bi-clock me-1"></i>ينتهي: ${formatDate(offer.validUntil)}
+                                </small>
+                            </div>
+                            <h5 class="card-title">${offer.title}</h5>
+                            <h6 class="text-muted">${offer.subtitle}</h6>
+                            <p class="card-text">${offer.description}</p>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="text-decoration-line-through text-muted">${offer.originalPrice}</span>
+                                    <span class="h5 text-success mb-0">${offer.discountedPrice}</span>
+                                </div>
+                                <small class="text-success">توفير: ${offer.savings}</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <strong>المميزات:</strong>
+                                <ul class="small text-muted mt-1">
+                                    ${offer.features.slice(0, 2).map(feature => `<li>${feature}</li>`).join('')}
+                                    ${offer.features.length > 2 ? '<li>والمزيد...</li>' : ''}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary flex-fill" onclick="showOfferDetails(${offer.id})">
+                                    <i class="bi bi-info-circle me-2"></i>التفاصيل
+                                </button>
+                                <button class="btn btn-success" onclick="claimOffer(${offer.id})">
+                                    <i class="bi bi-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showOfferDetails(offerId) {
+            const offer = offersData.find(o => o.id === offerId);
+            if (!offer) return;
+
+            const modal = new bootstrap.Modal(document.getElementById('offerModal'));
+            document.getElementById('offerModalTitle').textContent = offer.title;
+            
+            document.getElementById('offerModalBody').innerHTML = `
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="${offer.image}" class="img-fluid rounded" alt="${offer.title}">
+                    </div>
+                    <div class="col-md-8">
+                        <h6 class="text-muted">${offer.subtitle}</h6>
+                        <p class="mb-3">${offer.description}</p>
+                        
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="text-decoration-line-through text-muted">${offer.originalPrice}</div>
+                                    <div class="h4 text-success mb-0">${offer.discountedPrice}</div>
+                                    <small class="text-success">توفير: ${offer.savings}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="h4 text-primary mb-0">خصم ${offer.discount}</div>
+                                    <small class="text-muted">من السعر الأصلي</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <strong>المميزات:</strong>
+                            <ul class="mt-2">
+                                ${offer.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            ينتهي العرض في: ${formatDate(offer.validUntil)}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.show();
+        }
+
+        function claimOffer(offerId) {
+            const offer = offersData.find(o => o.id === offerId);
+            if (!offer) return;
+
+            showToast(`جاري تطبيق عرض "${offer.title}"...`, 'info');
+            
+            setTimeout(() => {
+                showToast(`تم تطبيق العرض بنجاح! تم خصم ${offer.savings} من إجمالي المبلغ`, 'success');
+            }, 2000);
+        }
+
+        function claimCurrentOffer() {
+            showToast('جاري تطبيق العرض...', 'info');
+            
+            setTimeout(() => {
+                showToast('تم تطبيق العرض بنجاح! يمكنك الآن اختيار الكورسات الستة', 'success');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('offerModal'));
+                modal.hide();
+            }, 2000);
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ar-EG');
+        }
+
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast show bg-${type} text-white`;
+            toast.innerHTML = `
+                <div class="toast-body">
+                    ${message}
+                </div>
+            `;
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Countdown timer for featured offer
+        function updateCountdown() {
+            const endDate = new Date('2024-02-15');
+            const now = new Date();
+            const diff = endDate - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('countdown').textContent = `${days} يوم ${hours} ساعة ${minutes} دقيقة`;
+            } else {
+                document.getElementById('countdown').textContent = 'انتهى العرض';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            displayOffers();
+            updateCountdown();
+            setInterval(updateCountdown, 60000); // Update every minute
+        });
+    </script>
+    
+</body>
+</html> 

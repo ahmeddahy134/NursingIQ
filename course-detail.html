@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الكورس - NursingIQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2E7D8A;
+            --primary-light: #E8F4F6;
+            --primary-dark: #1A5A66;
+            --success-color: #28A745;
+            --warning-color: #FFC107;
+            --danger-color: #DC3545;
+            --info-color: #17A2B8;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f8f9fa;
+            padding-top: 80px;
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .course-image {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .course-stats {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--warning-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .progress-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .progress-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--success-color) 0deg, #e9ecef 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .progress-circle::before {
+            content: '';
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .progress-text {
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+            color: var(--success-color);
+            font-size: 1.2rem;
+        }
+
+        .lectures-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .lecture-item {
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .lecture-item:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46, 125, 138, 0.1);
+        }
+
+        .lecture-status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .status-completed { background-color: var(--success-color); }
+        .status-current { background-color: var(--warning-color); }
+        .status-pending { background-color: #6c757d; }
+
+        .lecture-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .lecture-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        .lecture-details h6 {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .lecture-details small {
+            color: var(--text-secondary);
+        }
+
+        .btn-watch {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-watch:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .course-description {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .requirements-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+        }
+
+        .requirement-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 15px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-secondary);
+        }
+
+        .course-actions {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 125, 138, 0.3);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .course-header {
+                padding: 40px 0;
+            }
+            
+            .stat-item {
+                padding: 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-heart-pulse-fill text-primary me-2"></i>
+                <span class="fw-bold">NursingIQ</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="courses.html">المواد الدراسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.html">التدريب</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-primary me-2">تسجيل الدخول</a>
+                    <a href="register.html" class="btn btn-primary">حساب جديد</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a href="courses.html">المواد الدراسية</a></li>
+                    <li class="breadcrumb-item active" id="courseTitle">أساسيات التمريض</li>
+                </ol>
+            </nav>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold mb-3" id="courseTitleMain">أساسيات التمريض</h1>
+                    <p class="lead mb-4" id="courseDescription">مقدمة في أساسيات التمريض والمفاهيم الأساسية للرعاية الصحية</p>
+                    
+                    <div class="course-stats">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="lecturesCount">12</span>
+                                    <span class="stat-label">محاضرة</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="duration">3</span>
+                                    <span class="stat-label">أشهر</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="studentsCount">150</span>
+                                    <span class="stat-label">طالب</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="img/i5.webp" alt="Course Image" class="img-fluid course-image" id="courseImage" style="max-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Course Description -->
+                <div class="course-description">
+                    <h4 class="mb-3"><i class="bi bi-info-circle me-2"></i>وصف الكورس</h4>
+                    <p id="courseDescriptionText">
+                        هذا الكورس يقدم مقدمة شاملة لأساسيات التمريض والمفاهيم الأساسية للرعاية الصحية. 
+                        سيتعلم الطلاب المهارات الأساسية المطلوبة للممارسة التمريضية الآمنة والفعالة.
+                    </p>
+                    
+                    <h5 class="mt-4 mb-3">ما سيتعلمه الطالب:</h5>
+                    <ul>
+                        <li>المفاهيم الأساسية في التمريض</li>
+                        <li>مبادئ الرعاية الصحية</li>
+                        <li>المهارات الأساسية للتمريض</li>
+                        <li>أخلاقيات المهنة</li>
+                        <li>التواصل مع المرضى</li>
+                    </ul>
+                </div>
+
+                <!-- Lectures Section -->
+                <div class="lectures-section">
+                    <h4 class="mb-3"><i class="bi bi-play-circle me-2"></i>المحاضرات</h4>
+                    <div id="lecturesList">
+                        <!-- Lectures will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Requirements Section -->
+                <div class="requirements-section">
+                    <h4 class="mb-3"><i class="bi bi-list-check me-2"></i>متطلبات الكورس</h4>
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="bi bi-check"></i>
+                        </div>
+                        <div>
+                            <strong>خلفية أساسية في العلوم</strong>
+                            <small class="d-block text-muted">معرفة أساسية بالعلوم البيولوجية</small>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="bi bi-check"></i>
+                        </div>
+                        <div>
+                            <strong>مهارات الحاسوب الأساسية</strong>
+                            <small class="d-block text-muted">القدرة على استخدام الحاسوب والإنترنت</small>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="bi bi-check"></i>
+                        </div>
+                        <div>
+                            <strong>اللغة العربية</strong>
+                            <small class="d-block text-muted">إتقان اللغة العربية للقراءة والكتابة</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <h5 class="mb-3 text-center"><i class="bi bi-graph-up me-2"></i>تقدمك في الكورس</h5>
+                    <div class="progress-circle">
+                        <div class="progress-text">
+                            <span id="progressPercent">0</span>%
+                        </div>
+                    </div>
+                    <p class="text-center mb-3">0 من 12 محاضرة مكتملة</p>
+                    <div class="progress mb-3" style="height: 8px;">
+                        <div class="progress-bar" role="progressbar" style="width: 0%" id="progressBar"></div>
+                    </div>
+                    <small class="text-muted">ابدأ التعلم لإحراز التقدم</small>
+                </div>
+
+                <!-- Course Info -->
+                <div class="progress-section">
+                    <h5 class="mb-3"><i class="bi bi-info-circle me-2"></i>معلومات الكورس</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="text-center p-3">
+                                <i class="bi bi-calendar text-primary fs-4"></i>
+                                <div class="mt-2">
+                                    <strong>تاريخ البداية</strong>
+                                    <div class="text-muted">15 يناير 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3">
+                                <i class="bi bi-clock text-primary fs-4"></i>
+                                <div class="mt-2">
+                                    <strong>المدة</strong>
+                                    <div class="text-muted">3 أشهر</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="text-center p-3">
+                                <i class="bi bi-person text-primary fs-4"></i>
+                                <div class="mt-2">
+                                    <strong>المدرب</strong>
+                                    <div class="text-muted">د. فاطمة أحمد</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3">
+                                <i class="bi bi-star text-primary fs-4"></i>
+                                <div class="mt-2">
+                                    <strong>التقييم</strong>
+                                    <div class="text-muted">4.8/5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Actions -->
+                <div class="course-actions">
+                    <h5 class="mb-3">ابدأ رحلة التعلم</h5>
+                    <p class="text-muted mb-4">اختر المحاضرة الأولى لتبدأ التعلم</p>
+                    <button class="btn btn-primary-custom w-100 mb-2" onclick="startFirstLecture()">
+                        <i class="bi bi-play-circle me-2"></i>ابدأ المحاضرة الأولى
+                    </button>
+                    <a href="courses.html" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-arrow-left me-2"></i>العودة للمواد
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 NursingIQ. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Sample course data
+        const courseData = {
+            id: 1,
+            title: "أساسيات التمريض",
+            description: "مقدمة في أساسيات التمريض والمفاهيم الأساسية للرعاية الصحية",
+            longDescription: "هذا الكورس يقدم مقدمة شاملة لأساسيات التمريض والمفاهيم الأساسية للرعاية الصحية. سيتعلم الطلاب المهارات الأساسية المطلوبة للممارسة التمريضية الآمنة والفعالة، بما في ذلك التواصل مع المرضى، تقييم الحالة الصحية، وتطبيق المبادئ الأخلاقية للمهنة.",
+            image: "img/i5.webp",
+            year: "فرقة أولى",
+            term: "ترم أول",
+            type: "نظرية",
+            duration: "3 أشهر",
+            lectures: 12,
+            students: 150,
+            progress: 0,
+            instructor: "د. فاطمة أحمد",
+            startDate: "15 يناير 2025",
+            rating: "4.8/5",
+            lecturesList: [
+                {
+                    id: 1,
+                    title: "مقدمة في التمريض",
+                    duration: "45 دقيقة",
+                    status: "pending",
+                    description: "مقدمة شاملة لمهنة التمريض وأهميتها"
+                },
+                {
+                    id: 2,
+                    title: "مبادئ الرعاية الصحية",
+                    duration: "50 دقيقة",
+                    status: "pending",
+                    description: "أساسيات الرعاية الصحية الشاملة"
+                },
+                {
+                    id: 3,
+                    title: "المهارات الأساسية للتمريض",
+                    duration: "60 دقيقة",
+                    status: "pending",
+                    description: "تعلم المهارات العملية الأساسية"
+                },
+                {
+                    id: 4,
+                    title: "أخلاقيات التمريض",
+                    duration: "40 دقيقة",
+                    status: "pending",
+                    description: "المبادئ الأخلاقية للمهنة"
+                },
+                {
+                    id: 5,
+                    title: "التواصل مع المرضى",
+                    duration: "55 دقيقة",
+                    status: "pending",
+                    description: "تقنيات التواصل الفعال"
+                },
+                {
+                    id: 6,
+                    title: "تقييم الحالة الصحية",
+                    duration: "65 دقيقة",
+                    status: "pending",
+                    description: "طرق تقييم المريض"
+                },
+                {
+                    id: 7,
+                    title: "التوثيق التمريضي",
+                    duration: "45 دقيقة",
+                    status: "pending",
+                    description: "أهمية التوثيق الصحيح"
+                },
+                {
+                    id: 8,
+                    title: "إدارة الأدوية",
+                    duration: "70 دقيقة",
+                    status: "pending",
+                    description: "مبادئ إدارة الأدوية الآمنة"
+                },
+                {
+                    id: 9,
+                    title: "الرعاية النفسية",
+                    duration: "50 دقيقة",
+                    status: "pending",
+                    description: "دعم الصحة النفسية للمريض"
+                },
+                {
+                    id: 10,
+                    title: "التعامل مع الطوارئ",
+                    duration: "80 دقيقة",
+                    status: "pending",
+                    description: "الاستجابة للحالات الطارئة"
+                },
+                {
+                    id: 11,
+                    title: "التعليم الصحي",
+                    duration: "45 دقيقة",
+                    status: "pending",
+                    description: "تعليم المرضى وأسرهم"
+                },
+                {
+                    id: 12,
+                    title: "تقييم الكورس",
+                    duration: "30 دقيقة",
+                    status: "pending",
+                    description: "اختبار نهائي وتقييم شامل"
+                }
+            ]
+        };
+
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = urlParams.get('id');
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCourseData();
+        });
+
+        function loadCourseData() {
+            // Update page content
+            document.getElementById('courseTitle').textContent = courseData.title;
+            document.getElementById('courseTitleMain').textContent = courseData.title;
+            document.getElementById('courseDescription').textContent = courseData.description;
+            document.getElementById('courseDescriptionText').textContent = courseData.longDescription;
+            document.getElementById('courseImage').src = courseData.image;
+            
+            // Update stats
+            document.getElementById('lecturesCount').textContent = courseData.lectures;
+            document.getElementById('duration').textContent = courseData.duration.split(' ')[0];
+            document.getElementById('studentsCount').textContent = courseData.students;
+            
+            // Load lectures
+            loadLectures();
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function loadLectures() {
+            const lecturesList = document.getElementById('lecturesList');
+            
+            lecturesList.innerHTML = courseData.lecturesList.map((lecture, index) => `
+                <div class="lecture-item">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="lecture-info">
+                            <span class="lecture-status status-${lecture.status}"></span>
+                            <div class="lecture-icon">
+                                <i class="bi bi-play-circle"></i>
+                            </div>
+                            <div class="lecture-details">
+                                <h6>${index + 1}. ${lecture.title}</h6>
+                                <small>
+                                    <i class="bi bi-clock me-1"></i>${lecture.duration}
+                                </small>
+                                <div class="mt-1">${lecture.description}</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-watch" onclick="watchLecture(${lecture.id}, '${lecture.title}')">
+                            <i class="bi bi-play me-1"></i>مشاهدة
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateProgress() {
+            const progressPercent = document.getElementById('progressPercent');
+            const progressBar = document.getElementById('progressBar');
+            
+            progressPercent.textContent = courseData.progress;
+            progressBar.style.width = courseData.progress + '%';
+        }
+
+        function watchLecture(lectureId, lectureTitle) {
+            // Redirect to lecture detail page with parameters
+            const lectureUrl = `lecture-detail.html?course=${encodeURIComponent(courseData.title)}&lecture=${lectureId}&title=${encodeURIComponent(lectureTitle)}`;
+            window.location.href = lectureUrl;
+        }
+
+        function startFirstLecture() {
+            // Start with the first lecture
+            watchLecture(1, courseData.lecturesList[0].title);
+        }
+
+        // Simulate progress update (in real app, this would come from user activity)
+        function simulateProgress() {
+            setTimeout(() => {
+                courseData.progress = Math.min(100, courseData.progress + 8.33); // 1/12 of 100%
+                updateProgress();
+            }, 2000);
+        }
+
+        // Start progress simulation
+        simulateProgress();
+    </script>
+</body>
+</html>

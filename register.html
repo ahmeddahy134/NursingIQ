@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب جديد - NursingIQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Include Shared Navbar -->
+    <div id="navbar-container"><!-- Shared Navbar Component -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <i class="bi bi-heart-pulse-fill text-primary me-2"></i>
+            <span class="fw-bold">NursingIQ</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" data-lang-key="home">الرئيسية</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="learning">
+                        التعلم
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="courses.html" data-lang-key="studyContent">المحتوى الدراسي</a></li>
+                        <li><a class="dropdown-item" href="training.html" data-lang-key="practicalContent">المحتوى العملي</a></li>
+                        <li><a class="dropdown-item" href="articles.html" data-lang-key="articles">المقالات</a></li>
+                        <li><a class="dropdown-item" href="diplomas.html">الدبلومات المهنية</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="community">
+                        المجتمع
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="forum.html" data-lang-key="forum">المنتدى</a></li>
+                        <li><a class="dropdown-item" href="announcements.html" data-lang-key="announcements">الإعلانات</a></li>
+                        <li><a class="dropdown-item" href="offers.html" data-lang-key="offers">العروض</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="store.html" data-lang-key="store">المتجر</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="reference">
+                        المرجع
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="dictionary.html" data-lang-key="dictionary">القاموس الطبي</a></li>
+                        <li><a class="dropdown-item" href="medicines.html" data-lang-key="medicines">الأدوية</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-key="support">
+                        الدعم
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="support.html" data-lang-key="technicalSupport">الدعم الفني</a></li>
+                        <li><a class="dropdown-item" href="about.html" data-lang-key="about">من نحن</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="d-flex align-items-center">
+                <!-- Language Switcher -->
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-primary dropdown-toggle language-switcher" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch language">
+                        <i class="bi bi-globe me-1"></i>
+                        <span id="currentLanguage">العربية</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="LanguageSystem.changeLanguage('ar')">
+                            <i class="bi bi-flag me-2"></i>العربية
+                        </a></li>
+                        <li><a class="dropdown-item" href="#" onclick="LanguageSystem.changeLanguage('en')">
+                            <i class="bi bi-flag me-2"></i>English
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login" data-lang-key="login">تسجيل الدخول</a>
+                    <a href="register.html" class="btn btn-register" data-lang-key="register">حساب جديد</a>
+                </div>
+
+                <!-- User Menu -->
+                <div id="user-menu" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-2"></i>
+                            <span id="user-name">المستخدم</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dashboard-student.html">
+                                <i class="bi bi-speedometer2 me-2"></i><span data-lang-key="dashboard">لوحة التحكم</span>
+                            </a></li>
+                            <li><a class="dropdown-item" href="profile.html">
+                                <i class="bi bi-person me-2"></i><span data-lang-key="profile">الملف الشخصي</span>
+                            </a></li>
+                            <li><a class="dropdown-item" href="my-courses.html">
+                                <i class="bi bi-book me-2"></i><span data-lang-key="myCourses">كورساتي</span>
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">
+                                <i class="bi bi-box-arrow-right me-2"></i><span data-lang-key="logout">تسجيل الخروج</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Chatbot Button -->
+<div class="chatbot-btn" onclick="openChatbot()" aria-label="Open chatbot">
+    <i class="bi bi-chat-dots"></i>
+</div>
+
+<!-- Toast Container -->
+<div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+</div>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">إنشاء حساب جديد</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                            <li class="breadcrumb-item active">حساب جديد</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4 class="mb-0"><i class="bi bi-person-plus me-2"></i>انضم إلينا اليوم</h4>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="registrationForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">الاسم الأول *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">الاسم الأخير *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">البريد الإلكتروني *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">رقم الهاتف *</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="password" class="form-label">كلمة المرور *</label>
+                                        <input type="password" class="form-control" id="password" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="confirmPassword" class="form-label">تأكيد كلمة المرور *</label>
+                                        <input type="password" class="form-control" id="confirmPassword" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="institutionType" class="form-label">نوع المؤسسة التعليمية *</label>
+                                        <select class="form-select" id="institutionType" required>
+                                            <option value="">اختر النوع</option>
+                                            <option value="college">كلية</option>
+                                            <option value="institute">معهد</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="university" class="form-label">المؤسسة التعليمية *</label>
+                                        <select class="form-select" id="university" required>
+                                            <option value="">اختر المؤسسة</option>
+                                            <!-- Will be populated based on institution type -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="studyYear" class="form-label">الفرقة الدراسية *</label>
+                                        <select class="form-select" id="studyYear" required>
+                                            <option value="">اختر الفرقة</option>
+                                            <!-- Will be populated based on institution type -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="dateOfBirth" class="form-label">تاريخ الميلاد *</label>
+                                        <input type="date" class="form-control" id="dateOfBirth" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="interests" class="form-label">المجالات التي تهتم بها</label>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="emergency" id="emergency">
+                                                <label class="form-check-label" for="emergency">
+                                                    تمريض الطوارئ
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="pediatric" id="pediatric">
+                                                <label class="form-check-label" for="pediatric">
+                                                    تمريض الأطفال
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="surgical" id="surgical">
+                                                <label class="form-check-label" for="surgical">
+                                                    التمريض الجراحي
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="medical" id="medical">
+                                                <label class="form-check-label" for="medical">
+                                                    التمريض الطبي
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="critical" id="critical">
+                                                <label class="form-check-label" for="critical">
+                                                    العناية المركزة
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="community" id="community">
+                                                <label class="form-check-label" for="community">
+                                                    تمريض المجتمع
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            أوافق على <a href="#" class="text-primary">الشروط والأحكام</a> و <a href="#" class="text-primary">سياسة الخصوصية</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            أريد تلقي النشرة الإخبارية والتحديثات
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-person-plus me-2"></i>إنشاء الحساب
+                                    </button>
+                                </div>
+                            </form>
+
+                            <hr class="my-4">
+
+                            <div class="text-center">
+                                <p class="mb-0">لديك حساب بالفعل؟ <a href="login.html" class="text-primary">تسجيل الدخول</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-6 fw-bold text-primary mb-3">لماذا تنضم إلينا؟</h2>
+                    <p class="lead text-muted">اكتشف الفوائد التي ستحصل عليها عند الانضمام لمنصتنا</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-4">
+                            <i class="bi bi-book text-primary display-4"></i>
+                        </div>
+                        <h4 class="mb-3">مواد تعليمية شاملة</h4>
+                        <p class="text-muted">احصل على مواد دراسية شاملة ومحدثة تغطي جميع جوانب التمريض</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-4">
+                            <i class="bi bi-calendar-check text-success display-4"></i>
+                        </div>
+                        <h4 class="mb-3">تدريب عملي</h4>
+                        <p class="text-muted">فرص تدريب عملي في مستشفيات ومعاهد معتمدة</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon mb-4">
+                            <i class="bi bi-people text-warning display-4"></i>
+                        </div>
+                        <h4 class="mb-3">مجتمع داعم</h4>
+                        <p class="text-muted">انضم لمجتمع من طلاب التمريض والخبراء في المجال</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <!-- Footer Container -->
+    <div id="footer-container">
+        <!-- Footer with Hover Effect -->
+<style>
+    footer a {
+        transition: color 0.3s ease, background-color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #0d6efd !important; /* أزرق */
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 5px;
+        text-decoration: underline;
+    }
+</style>
+
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="mb-3">NursingIQ</h5>
+                <p class="text-white" data-lang-key="footerDescription">منصة شاملة لمساعدة طلاب التمريض في تطوير مهاراتهم ومعرفتهم</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="mb-3" data-lang-key="quickLinks">روابط سريعة</h6>
+                <ul class="list-unstyled">
+                    <li><a href="courses.html" class="text-white text-decoration-none" data-lang-key="courses">المواد</a></li>
+                    <li><a href="training.html" class="text-white text-decoration-none" data-lang-key="training">التدريب</a></li>
+                    <li><a href="skills.html" class="text-white text-decoration-none" data-lang-key="skills">المهارات</a></li>
+                    <li><a href="support.html" class="text-white text-decoration-none" data-lang-key="support">الدعم</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="mb-3" data-lang-key="resources">الموارد</h6>
+                <ul class="list-unstyled">
+                    <li><a href="quizzes.html" class="text-white text-decoration-none" data-lang-key="quizzes">الاختبارات</a></li>
+                    <li><a href="videos.html" class="text-white text-decoration-none" data-lang-key="videos">الفيديوهات</a></li>
+                    <li><a href="announcements.html" class="text-white text-decoration-none" data-lang-key="announcements">الإعلانات</a></li>
+                    <li><a href="offers.html" class="text-white text-decoration-none" data-lang-key="offers">العروض</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h6 class="mb-3" data-lang-key="newsletter">النشرة الإخبارية</h6>
+                <p class="text-white" data-lang-key="newsletterDesc">اشترك للحصول على آخر التحديثات</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="البريد الإلكتروني" id="newsletter-email">
+                    <button class="btn btn-primary" type="button" onclick="subscribeNewsletter()" data-lang-key="subscribe">اشتراك</button>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="mb-0 text-white">&copy; 2024 NursingIQ. جميع الحقوق محفوظة</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="about.html" class="text-white text-decoration-none me-3" data-lang-key="about">حول الموقع</a>
+                <a href="support.html" class="text-white text-decoration-none me-3" data-lang-key="contact">اتصل بنا</a>
+                <a href="#" class="text-white text-decoration-none" data-lang-key="privacy">سياسة الخصوصية</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Egyptian Universities Data
+        const universities = {
+            college: [
+                "جامعة القاهرة",
+                "جامعة عين شمس",
+                "جامعة الإسكندرية",
+                "جامعة أسيوط",
+                "جامعة المنصورة",
+                "جامعة الزقازيق",
+                "جامعة طنطا",
+                "جامعة بنها",
+                "جامعة بني سويف",
+                "جامعة الفيوم",
+                "جامعة المنيا",
+                "جامعة سوهاج",
+                "جامعة قناة السويس",
+                "جامعة جنوب الوادي",
+                "جامعة كفر الشيخ",
+                "جامعة دمياط",
+                "جامعة بورسعيد",
+                "جامعة العريش",
+                "جامعة الأزهر",
+                "جامعة حلوان",
+                "جامعة 6 أكتوبر",
+                "جامعة مصر للعلوم والتكنولوجيا",
+                "جامعة المستقبل",
+                "جامعة النهضة",
+                "جامعة الدلتا للعلوم والتكنولوجيا"
+            ],
+            institute: [
+                "المعهد العالي للتمريض - جامعة القاهرة",
+                "المعهد العالي للتمريض - جامعة عين شمس",
+                "المعهد العالي للتمريض - جامعة الإسكندرية",
+                "المعهد العالي للتمريض - جامعة أسيوط",
+                "المعهد العالي للتمريض - جامعة المنصورة",
+                "المعهد العالي للتمريض - جامعة الزقازيق",
+                "المعهد العالي للتمريض - جامعة طنطا",
+                "المعهد العالي للتمريض - جامعة بنها",
+                "المعهد العالي للتمريض - جامعة بني سويف",
+                "المعهد العالي للتمريض - جامعة الفيوم",
+                "المعهد العالي للتمريض - جامعة المنيا",
+                "المعهد العالي للتمريض - جامعة سوهاج",
+                "المعهد العالي للتمريض - جامعة قناة السويس",
+                "المعهد العالي للتمريض - جامعة جنوب الوادي",
+                "المعهد العالي للتمريض - جامعة كفر الشيخ",
+                "المعهد العالي للتمريض - جامعة دمياط",
+                "المعهد العالي للتمريض - جامعة بورسعيد",
+                "المعهد العالي للتمريض - جامعة العريش",
+                "المعهد العالي للتمريض - جامعة الأزهر",
+                "المعهد العالي للتمريض - جامعة حلوان"
+            ]
+        };
+
+        // Study Years Data
+        const studyYears = {
+            college: [
+                "فرقة أولى",
+                "فرقة ثانية",
+                "فرقة ثالثة",
+                "فرقة رابعة",
+                "امتياز"
+            ],
+            institute: [
+                "فرقة أولى",
+                "فرقة ثانية"
+            ]
+        };
+
+        // Initialize form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const institutionType = document.getElementById('institutionType');
+            const universitySelect = document.getElementById('university');
+            const studyYearSelect = document.getElementById('studyYear');
+
+            // Handle institution type change
+            institutionType.addEventListener('change', function() {
+                const selectedType = this.value;
+                universitySelect.innerHTML = '<option value="">اختر المؤسسة</option>';
+                studyYearSelect.innerHTML = '<option value="">اختر الفرقة</option>';
+
+                if (selectedType) {
+                    // Populate universities
+                    universities[selectedType].forEach(uni => {
+                        const option = document.createElement('option');
+                        option.value = uni;
+                        option.textContent = uni;
+                        universitySelect.appendChild(option);
+                    });
+
+                    // Populate study years
+                    studyYears[selectedType].forEach(year => {
+                        const option = document.createElement('option');
+                        option.value = year;
+                        option.textContent = year;
+                        studyYearSelect.appendChild(option);
+                    });
+                }
+            });
+
+            // Handle form submission
+            document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    showToast('كلمات المرور غير متطابقة', 'danger');
+                    return;
+                }
+
+                if (password.length < 8) {
+                    showToast('كلمة المرور يجب أن تكون 8 أحرف على الأقل', 'warning');
+                    return;
+                }
+
+                // Simulate registration
+                showToast('جاري إنشاء الحساب...', 'info');
+                
+                setTimeout(() => {
+                    showToast('تم إنشاء الحساب بنجاح! سيتم توجيهك إلى لوحة التحكم', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'dashboard-student.html';
+                    }, 2000);
+                }, 2000);
+            });
+        });
+
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast show bg-${type} text-white`;
+            toast.innerHTML = `
+                <div class="toast-body">
+                    ${message}
+                </div>
+            `;
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html> 
