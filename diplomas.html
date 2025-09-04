@@ -146,7 +146,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <h1 class="display-4 fw-bold mb-3">الدبلومات المهنية الدولية</h1>
-                    <p class="lead mb-4">اكتشف أفضل الشهادات والدبلومات الدولية في مجال التمريض وطور مسيرتك المهنية</p>
+                    <p class="lead mb-4" style="color: aliceblue;">اكتشف أفضل الشهادات والدبلومات الدولية في مجال التمريض وطور مسيرتك المهنية</p>
                     <div class="d-flex gap-3 flex-wrap">
                         <a href="#diplomas" class="btn btn-light btn-lg">
                             <i class="bi bi-award me-2"></i>استكشف الدبلومات
@@ -242,6 +242,111 @@
         </div>
     </section>
 
+    <!-- Diploma Details Modal -->
+    <div class="modal fade diploma-modal" id="diplomaModal" tabindex="-1" aria-labelledby="diplomaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="diplomaModalLabel">تفاصيل الدبلومة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 id="diplomaTitle" class="fw-bold mb-3">RN License - الولايات المتحدة</h4>
+                            <p id="diplomaDescription" class="text-muted mb-4">شهادة الممرض المسجل في الولايات المتحدة الأمريكية، تفتح أبواب العمل في أفضل المستشفيات العالمية.</p>
+                            
+                            <h5 class="fw-bold mb-3">المميزات الرئيسية</h5>
+                            <div id="diplomaFeatures">
+                                <div class="diploma-feature">
+                                    <div class="diploma-feature-icon">
+                                        <i class="bi bi-briefcase text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold">فرص عمل عالمية</h6>
+                                        <p class="text-muted mb-0">فتح أبواب العمل في أفضل المستشفيات في الولايات المتحدة والعالم</p>
+                                    </div>
+                                </div>
+                                <div class="diploma-feature">
+                                    <div class="diploma-feature-icon">
+                                        <i class="bi bi-currency-dollar text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold">رواتب تنافسية</h6>
+                                        <p class="text-muted mb-0">رواتب تبدأ من 60,000$ سنوياً وتصل إلى 100,000$ مع التقدم</p>
+                                    </div>
+                                </div>
+                                <div class="diploma-feature">
+                                    <div class="diploma-feature-icon">
+                                        <i class="bi bi-globe text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold">اعتراف عالمي</h6>
+                                        <p class="text-muted mb-0">شهادة معترف بها في جميع أنحاء العالم</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="diploma-requirements">
+                                <h5 class="fw-bold mb-3">متطلبات التقديم</h5>
+                                <div id="diplomaRequirements">
+                                    <div class="requirement-item">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>شهادة تمريض معتمدة</span>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>اجتياز اختبار NCLEX-RN</span>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>كشف السجل الجنائي</span>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>إثبات إجادة اللغة الإنجليزية</span>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="fw-bold mt-4 mb-3">المدة المتوقعة</h5>
+                                <p id="diplomaDuration" class="mb-0">6-12 شهراً للإعداد والاختبار</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="fw-bold mt-4 mb-3">خطوات الحصول على الشهادة</h5>
+                    <div class="diploma-timeline">
+                        <div class="timeline-item">
+                            <h6 class="fw-bold">التقديم الأولي</h6>
+                            <p class="text-muted mb-0">تقديم الطلب إلى مجلس التمريض في الولاية المطلوبة</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold">تقديم المستندات</h6>
+                            <p class="text-muted mb-0">إرسال جميع المستندات المطلوبة مترجمة ومصدقة</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold">الحصول على التأهيل</h6>
+                            <p class="text-muted mb-0">الحصول على تصريح لتقديم اختبار NCLEX-RN</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold">تقديم الاختبار</h6>
+                            <p class="text-muted mb-0">اختبار NCLEX-RN في مركز معتمد</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold">الحصول على الرخصة</h6>
+                            <p class="text-muted mb-0">استلام رخصة التمريض بعد اجتياز الاختبار</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary">التقديم الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Chatbot Button -->
     <button class="chatbot-btn" onclick="openChatbot()" title="الدردشة مع المساعد">
         <i class="bi bi-chat-dots"></i>
@@ -249,12 +354,189 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/language.js"></script>
-    <script src="js/app.js"></script>
     <script>
+        // بيانات الدبلومات
+        const diplomasData = {
+            'RN': {
+                title: 'RN License - الولايات المتحدة',
+                description: 'شهادة الممرض المسجل في الولايات المتحدة الأمريكية، تفتح أبواب العمل في أفضل المستشفيات العالمية.',
+                features: [
+                    {
+                        icon: 'bi-briefcase',
+                        title: 'فرص عمل عالمية',
+                        description: 'فتح أبواب العمل في أفضل المستشفيات في الولايات المتحدة والعالم'
+                    },
+                    {
+                        icon: 'bi-currency-dollar',
+                        title: 'رواتب تنافسية',
+                        description: 'رواتب تبدأ من 60,000$ سنوياً وتصل إلى 100,000$ مع التقدم'
+                    },
+                    {
+                        icon: 'bi-globe',
+                        title: 'اعتراف عالمي',
+                        description: 'شهادة معترف بها في جميع أنحاء العالم'
+                    }
+                ],
+                requirements: [
+                    'شهادة تمريض معتمدة',
+                    'اجتياز اختبار NCLEX-RN',
+                    'كشف السجل الجنائي',
+                    'إثبات إجادة اللغة الإنجليزية'
+                ],
+                duration: '6-12 شهراً للإعداد والاختبار',
+                steps: [
+                    'التقديم الأولي إلى مجلس التمريض في الولاية المطلوبة',
+                    'تقديم جميع المستندات المطلوبة مترجمة ومصدقة',
+                    'الحصول على تصريح لتقديم اختبار NCLEX-RN',
+                    'اختبار NCLEX-RN في مركز معتمد',
+                    'استلام رخصة التمريض بعد اجتياز الاختبار'
+                ]
+            },
+            'NCLEX': {
+                title: 'اختبار NCLEX-RN',
+                description: 'اختبار الترخيص الوطني للممرضين المسجلين، مطلوب للعمل في الولايات المتحدة وكندا.',
+                features: [
+                    {
+                        icon: 'bi-clipboard-check',
+                        title: 'معيار موحد',
+                        description: 'اختبار معياري لقياس كفاءة الممرضين للممارسة الآمنة'
+                    },
+                    {
+                        icon: 'bi-geo-alt',
+                        title: 'معترف به في أمريكا وكندا',
+                        description: 'الشهادة معترف بها في جميع ولايات أمريكا ومقاطعات كندا'
+                    },
+                    {
+                        icon: 'bi-graph-up',
+                        title: 'تقييم متكامل',
+                        description: 'يقيّم المهارات السريرية والقدرة على اتخاذ القرارات'
+                    }
+                ],
+                requirements: [
+                    'إكمال برنامج تمريض معتمد',
+                    'التقدم بطلب إلى مجلس التمريض',
+                    'الحصول على تصريح الاختبار (ATT)',
+                    'تسديد رسوم الاختبار'
+                ],
+                duration: '4-6 أشهر للإعداد والاختبار',
+                steps: [
+                    'إكمال برنامج التمريض المعتمد',
+                    'التقدم بطلب إلى مجلس التمريض',
+                    'الحصول على تصريح الاختبار (ATT)',
+                    'تسجيل موعد الاختبار',
+                    'أداء الاختبار في مركز بيرسون فيو',
+                    'الحصول على النتائج خلال 48 ساعة'
+                ]
+            },
+            'IELTS': {
+                title: 'اختبار IELTS Academic',
+                description: 'اختبار اللغة الإنجليزية الدولي، مطلوب للدراسة والعمل في الدول الناطقة بالإنجليزية.',
+                features: [
+                    {
+                        icon: 'bi-translate',
+                        title: 'اعتراف عالمي',
+                        description: 'معترف به من قبل أكثر من 10,000 مؤسسة حول العالم'
+                    },
+                    {
+                        icon: 'bi-calendar-check',
+                        title: 'تواريخ متعددة',
+                        description: 'اختبارات متاحة على مدار العام في مراكز متعددة'
+                    },
+                    {
+                        icon: 'bi-award',
+                        title: 'دقة التقييم',
+                        description: 'تقييم دقيق لمهارات اللغة الإنجليزية الأكاديمية'
+                    }
+                ],
+                requirements: [
+                    'هوية سارية المفعول',
+                    'تسديد رسوم الاختبار',
+                    'الحضور في الموعد المحدد',
+                    'اتباع تعليمات المركز'
+                ],
+                duration: '2-3 أشهر للإعداد والاختبار',
+                steps: [
+                    'التسجيل عبر الإنترنت أو في مركز الاختبار',
+                    'تسديد رسوم الاختبار',
+                    'الحضور في يوم الاختبار مع الهوية',
+                    'أداء أقسام الاستماع والقراءة والكتابة',
+                    'أداء قسم المحادثة وجهًا لوجه',
+                    'استلام النتائج بعد 13 يومًا من الاختبار'
+                ]
+            }
+        };
+
+        // دالة عرض تفاصيل الدبلومة
         function showDiplomaDetails(diplomaType) {
-            alert('سيتم إضافة تفاصيل الدبلومة: ' + diplomaType);
+            const diploma = diplomasData[diplomaType];
+            if (!diploma) return;
+            
+            // تحديث العنوان والوصف
+            document.getElementById('diplomaTitle').textContent = diploma.title;
+            document.getElementById('diplomaDescription').textContent = diploma.description;
+            
+            // تحديث المميزات
+            const featuresContainer = document.getElementById('diplomaFeatures');
+            featuresContainer.innerHTML = '';
+            
+            diploma.features.forEach(feature => {
+                const featureElement = `
+                    <div class="diploma-feature">
+                        <div class="diploma-feature-icon">
+                            <i class="bi ${feature.icon} text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold">${feature.title}</h6>
+                            <p class="text-muted mb-0">${feature.description}</p>
+                        </div>
+                    </div>
+                `;
+                featuresContainer.innerHTML += featureElement;
+            });
+            
+            // تحديث المتطلبات
+            const requirementsContainer = document.getElementById('diplomaRequirements');
+            requirementsContainer.innerHTML = '';
+            
+            diploma.requirements.forEach(requirement => {
+                const requirementElement = `
+                    <div class="requirement-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>${requirement}</span>
+                    </div>
+                `;
+                requirementsContainer.innerHTML += requirementElement;
+            });
+            
+            // تحديث المدة
+            document.getElementById('diplomaDuration').textContent = diploma.duration;
+            
+            // تحديث الخطوات
+            const timeline = document.querySelector('.diploma-timeline');
+            timeline.innerHTML = '';
+            
+            diploma.steps.forEach((step, index) => {
+                const stepElement = `
+                    <div class="timeline-item">
+                        <h6 class="fw-bold">الخطوة ${index + 1}</h6>
+                        <p class="text-muted mb-0">${step}</p>
+                    </div>
+                `;
+                timeline.innerHTML += stepElement;
+            });
+            
+            // عرض المودال
+            const diplomaModal = new bootstrap.Modal(document.getElementById('diplomaModal'));
+            diplomaModal.show();
         }
+
+        // دالة تتبع التمرير
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+        };
     </script>
 </body>
 </html>
